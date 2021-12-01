@@ -10,7 +10,7 @@ func main() {
 	result := Compute(measurements)
 	println("Compute result is: ", result)
 
-	result2 := ComputeGrouped()
+	result2 := ComputeGrouped(measurements)
 	fmt.Println("ComputeGrouped result is: ", result2)
 }
 
@@ -24,11 +24,11 @@ func Compute(measures []int) (larger_then_previous int) {
 	return
 }
 
-func ComputeGrouped() int {
+func ComputeGrouped(measures []int) int {
 	allGroupSums := []int{}
 	index := 0
-	for index < len(measurements)-2 {
-		allGroupSums = append(allGroupSums, measurements[index]+measurements[index+1]+measurements[index+2])
+	for index < len(measures)-2 {
+		allGroupSums = append(allGroupSums, measures[index]+measures[index+1]+measures[index+2])
 		index++
 	}
 	return Compute(allGroupSums)
